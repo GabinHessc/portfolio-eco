@@ -1,0 +1,192 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+@font-face{
+  font-family: Neon;
+  src : url("../public/Regular.ttf")
+}
+
+.description {
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  font-size: 0.85rem;
+  max-width: var(--max-width);
+  width: 100%;
+  z-index: 2;
+  font-family: var(--font-mono);
+}
+
+.description a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(25%, auto));
+  max-width: 100%;
+  width: var(--max-width);
+}
+
+.card {
+  padding: 1rem 1.2rem;
+  border-radius: var(--border-radius);
+  background: rgba(var(--card-rgb), 0);
+  border: 1px solid rgba(var(--card-border-rgb), 0);
+  transition: background 200ms, border 200ms;
+}
+
+.card span {
+  display: inline-block;
+  transition: transform 200ms;
+}
+
+.card h2 {
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.card p {
+  margin: 0;
+  opacity: 0.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 30ch;
+  text-wrap: balance;
+}
+
+.profil{
+  font-family:  Neon, sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.profil p{
+  width: 30%;
+  padding-right: 2em;
+}
+
+.barre {
+  position: fixed;
+  top:0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(to right, var(--background-color), var(--barre));
+}
+
+
+.logo {
+  position: relative;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  }
+
+  .card:hover span {
+    transform: translateX(4px);
+  }
+}
+
+.ecriture{
+  font-family:  Neon, sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.ecriture p{
+  width: 30%;
+  padding-left: 2em;
+}
+
+
+@media (max-width: 700px) {
+  .profil,
+  .ecriture {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profil p,
+  .ecriture p {
+    width: 360px; /* Étend le texte sur 500px */
+    padding: 0;
+    margin-bottom: 1rem; /* Ajoute un espace entre le texte et l'image */
+  }
+
+  .profil .logo {
+    margin-bottom: 1rem; /* Ajoute un espace en dessous de l'image */
+  }
+
+
+  .barre {
+    position: fixed;
+    top:0;
+    right: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(to right, var(--background-color), var(--barre));
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
+    gap: 1rem; /* Ajoute un espace entre les éléments */
+    max-width: 100%;
+    width: calc(100% - 4rem); /* Ajuste la largeur de la grille pour correspondre à la largeur du contenu */
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+  
+  .card h2 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .grid {
+    max-width: 100%; /* Utilise toute la largeur disponible */
+    width: calc(100% - 2rem); /* Ajuste la largeur de la grille */
+  }
+  
+  .card {
+    padding: 0.5rem; /* Réduit l'espacement à l'intérieur des cartes */
+  }
+  
+  /* Utilisez l'ordre flexbox pour mettre les images en dessous des textes */
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card img {
+    order: 2; /* Place les images en dessous des textes */
+    margin-top: 1rem; /* Ajoute un espacement entre les textes et les images */
+  }
+}
+
+  
